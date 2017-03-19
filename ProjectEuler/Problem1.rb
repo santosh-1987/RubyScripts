@@ -18,11 +18,14 @@ class Multiple
     return nil if @numbers.empty?
     valids = []
     @limit.downto(0).each do |num|
-      valids << num if(num % 3 == 0 || num % 5 == 0)
+      status =  @numbers.map{|cond| num%cond == 0 }
+      valids << num if status.include?(true)
     end
     return valids
   end
 end
 
-multiple = Multiple.new([3,5],999)
-multiple.fetch_valids.inject(&:+)
+multiple = Multiple.new([3,5],100)
+print multiple.fetch_valids.inject(&:+)
+
+# >> 2418
