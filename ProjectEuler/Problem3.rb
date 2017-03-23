@@ -20,15 +20,16 @@ end
 def fetch_prime(number)
   prime = []
   start=2
-   while start <= number
+  while start <= number
     if number%start == 0
-      prime = [start,number/start]
+      prime = [start, number/start]
       break
     end
     start += 1
-   end
-   return prime
+  end
+  return prime
 end
+
 # print fetch_prime(13195)
 print prime_factors(600851475143)
 

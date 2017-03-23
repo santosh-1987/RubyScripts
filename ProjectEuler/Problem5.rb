@@ -14,7 +14,7 @@ class EvenlyDivisible
     loop do
       ary = []
       for i in 1..number
-        ary <<  (count%i == 0)
+        ary << (count%i == 0)
         status = ary.include?(false)
       end
       return count unless ary.include?(false)

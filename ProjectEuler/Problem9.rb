@@ -10,14 +10,14 @@ Find the product abc.
 
 class Pythagorean
   def self.triplet_for(sum)
-   for base in 1..sum/3
-     for height in 1..sum/2
-       hyp = sum - height - base
+    for base in 1..sum/3
+      for height in 1..sum/2
+        hyp = sum - height - base
         if height**2 + base**2 == hyp**2
           return "Height , Base & Hypotenous & Product is #{height}, #{base}, #{hyp},#{height*base*hyp}"
         end
-     end
-   end
+      end
+    end
   end
 end
 

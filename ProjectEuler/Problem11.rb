@@ -31,66 +31,67 @@ require "rubygems"
 require "matrix"
 
 class GridProduct
-	attr_accessor :grid,:max_product
+  attr_accessor :grid, :max_product
   SLICE_SIZE = 0
-	def initialize(splitted_array)
-		@grid = Matrix.rows(splitted_array)
-		@max_product = 0
-	end
 
-	def iterate
-		# Only need to loop # of times less whatever the SLICE_SIZE is set to.  The last iteration
-		# will get the last group numbers from the "rightmost" and "bottom-most" side of the @grid.
-		0.upto(@grid.row_size - SLICE_SIZE) do |row|
-			0.upto(@grid.column_size - SLICE_SIZE) do |col|
+  def initialize(splitted_array)
+    @grid = Matrix.rows(splitted_array)
+    @max_product = 0
+  end
 
-				# Get a 4x4 sub-matrix (or whatever the SLICE_SIZE is set to) from the 20x20 @grid,
-				# starting from the "x" (row) and "y" (col) coordinates.
-				slice = @grid.minor(row, SLICE_SIZE, col, SLICE_SIZE)
-				puts "Slice: Row => #{row}, Col => #{col}"
-				slice.to_a.each do |data|
-					print data.join("  ")
-					puts "\n"
-				end
-				# Multiply every which-way, and get the highest number.
-				product = fetch_max_product(slice)
+  def iterate
+    # Only need to loop # of times less whatever the SLICE_SIZE is set to.  The last iteration
+    # will get the last group numbers from the "rightmost" and "bottom-most" side of the @grid.
+    0.upto(@grid.row_size - SLICE_SIZE) do |row|
+      0.upto(@grid.column_size - SLICE_SIZE) do |col|
 
-				# Keep track of the largest number.
-				@max_product = product if product > max_product
-			end
-		end
-		return @max_product
-	end
+        # Get a 4x4 sub-matrix (or whatever the SLICE_SIZE is set to) from the 20x20 @grid,
+        # starting from the "x" (row) and "y" (col) coordinates.
+        slice = @grid.minor(row, SLICE_SIZE, col, SLICE_SIZE)
+        puts "Slice: Row => #{row}, Col => #{col}"
+        slice.to_a.each do |data|
+          print data.join("  ")
+          puts "\n"
+        end
+        # Multiply every which-way, and get the highest number.
+        product = fetch_max_product(slice)
 
-	def fetch_max_product(slice)
-		puts "==>  Printing Diagonals  <==="
-		results = {
-			:max_row_product => slice.row_vectors.map{|vec| vec.inject(:*) }.max,
-			:max_col_product => slice.column_vectors.map{|vec| vec.inject(:*) }.max,
-			:diagonal_left_to_right => fetch_diagonal(slice,"left").inject(:*),
-			:diagonal_right_to_left => fetch_diagonal(slice,"right").inject(:*)
-		}
-		results.values.max
-	end
+        # Keep track of the largest number.
+        @max_product = product if product > max_product
+      end
+    end
+    return @max_product
+  end
 
-	def fetch_diagonal(slice,side)
+  def fetch_max_product(slice)
+    puts "==>  Printing Diagonals  <==="
+    results = {
+      :max_row_product => slice.row_vectors.map { |vec| vec.inject(:*) }.max,
+      :max_col_product => slice.column_vectors.map { |vec| vec.inject(:*) }.max,
+      :diagonal_left_to_right => fetch_diagonal(slice, "left").inject(:*),
+      :diagonal_right_to_left => fetch_diagonal(slice, "right").inject(:*)
+    }
+    results.values.max
+  end
+
+  def fetch_diagonal(slice, side)
     left = []
-		right = []
+    right = []
     0.upto(slice.row_size - 1) do |i|
-			0.upto(slice.column_size - 1) do |j|
-				left << slice[i,j] if i == j
-				right << slice[i,j] if i+j == GridProduct::SLICE_SIZE - 1
-			end
-		end
-		case side
-		when "left"
-			return left
-		when "right"
-			return right
-		else
-			return left,right
-		end
-	end
+      0.upto(slice.column_size - 1) do |j|
+        left << slice[i, j] if i == j
+        right << slice[i, j] if i+j == GridProduct::SLICE_SIZE - 1
+      end
+    end
+    case side
+      when "left"
+        return left
+      when "right"
+        return right
+      else
+        return left, right
+    end
+  end
 
 end
 
@@ -114,7 +115,7 @@ arr = %{08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48}
-splitted_array = arr.split("\n").map { |arr| arr.split(" ").map(&:to_i)}
+splitted_array = arr.split("\n").map { |arr| arr.split(" ").map(&:to_i) }
 GridProduct::SLICE_SIZE = 4
 grid = GridProduct.new(splitted_array)
 print grid.iterate

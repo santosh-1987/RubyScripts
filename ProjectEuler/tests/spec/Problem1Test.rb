@@ -1,6 +1,6 @@
 require "rubygems"
 require "test/unit"
-require_relative "../Problem1.rb"
+require_relative "../../Problem1.rb"
 
 class MultipleTest < Test::Unit::TestCase
   def test_instance

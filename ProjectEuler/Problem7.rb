@@ -8,12 +8,12 @@ class PrimeNum
   def self.fetch_list(limit)
     arr = []
     start = 2
-     loop do
-       arr << start if is_prime?(start)
-       start += 1
-       break if arr.size == limit
-     end
-     return arr
+    loop do
+      arr << start if is_prime?(start)
+      start += 1
+      break if arr.size == limit
+    end
+    return arr
   end
 
   def self.is_prime?(number)

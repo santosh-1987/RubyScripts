@@ -9,22 +9,23 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 require "rubygems"
 class Fibonacci
   attr_accessor :term, :sequence
- def initialize(term)
-   @term = term
-   @sequence = [1,2]
- end
 
- def fetch_values
-   while @sequence[-1] <= @term
-     break if (@sequence[-1] + @sequence[-2] > @term)
-    @sequence << @sequence[-1] + @sequence[-2]
-   end
-   return @sequence
- end
+  def initialize(term)
+    @term = term
+    @sequence = [1, 2]
+  end
 
- def fetch_sum
-  @sequence.inject(0) { |sum, i| (i%2 == 0 ) ? sum + i : sum }
- end
+  def fetch_values
+    while @sequence[-1] <= @term
+      break if (@sequence[-1] + @sequence[-2] > @term)
+      @sequence << @sequence[-1] + @sequence[-2]
+    end
+    return @sequence
+  end
+
+  def fetch_sum
+    @sequence.inject(0) { |sum, i| (i%2 == 0) ? sum + i : sum }
+  end
 end
 
 fib = Fibonacci.new(40_00_000)

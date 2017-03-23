@@ -27,7 +27,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 =end
 require "rubygems"
 class GreatestProduct
-  def self.for(num,digit,adjacent_limit)
+  def self.for(num, digit, adjacent_limit)
     return if num == nil || digit == nil || adjacent_limit == nil
     highest_no = ("9"*(digit)).to_i
     num_arr = num.to_s.split("").map(&:to_i)
@@ -65,6 +65,6 @@ num = %w{
   71636269561882670428252483600823257530420752963450
 }
 
-print GreatestProduct.for(num.join("").to_i, 4,13).max
+print GreatestProduct.for(num.join("").to_i, 4, 13).max
 
 # >> 23514624000

@@ -11,7 +11,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 =end
 class Array
   def square!
-    self.map! {|num| num ** 2}
+    self.map! { |num| num ** 2 }
   end
 end
 
@@ -21,7 +21,7 @@ class SumSquare
   end
 
   def self.square_sum(number)
-   0.upto(number).to_a.inject(:+) ** 2
+    0.upto(number).to_a.inject(:+) ** 2
   end
 end
 puts SumSquare.square_sum(100) - SumSquare.square_num_upto(100).inject(:+)
