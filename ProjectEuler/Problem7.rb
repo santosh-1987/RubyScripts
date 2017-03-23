@@ -11,7 +11,7 @@ class PrimeNum
      loop do
        arr << start if is_prime?(start)
        start += 1
-       break if arr.size ==limit
+       break if arr.size == limit
      end
      return arr
   end
