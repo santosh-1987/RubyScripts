@@ -17,6 +17,7 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 =end
 require "rubygems"
+require "pry"
 class TriangularNumber
   def self.fetch_upto(n, cached_num=0, final_num=0)
     if cached_num == 0 || final_num ==0
@@ -57,6 +58,7 @@ def divisors_count(num)
   count = 0
   latest_divisor = 1
   smallest_divisor = num
+  puts "C: #{count}, N: , #{num}, L :#{latest_divisor}, S: #{smallest_divisor}"
   while (latest_divisor < smallest_divisor)
     if num % latest_divisor == 0
       smallest_divisor = num / latest_divisor
@@ -67,23 +69,27 @@ def divisors_count(num)
       end
     end
     latest_divisor += 1
+    puts "C: #{count}, N: , #{num}, L :#{latest_divisor}, S: #{smallest_divisor}"
   end
   count
 end
 
-triange_number = 0
-i = 1
-stop = false
-while !stop
-  triange_number = i + triange_number
-  puts triange_number
-  if (divisors_count(triange_number) <= 500)
-    i += 1
-  else
-    stop = true
-  end
-end
-p triange_number
+
+print divisors_count(45)
+print 45.factors
+# triange_number = 0
+# i = 1
+# stop = false
+# while !stop
+#   triange_number = i + triange_number
+#   puts triange_number
+#   if (divisors_count(triange_number) <= 500)
+#     i += 1
+#   else
+#     stop = true
+#   end
+# end
+# p triange_number
 
 
 #
