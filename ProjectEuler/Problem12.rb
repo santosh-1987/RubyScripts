@@ -18,7 +18,7 @@ What is the value of the first triangle number to have over five hundred divisor
 =end
 require "rubygems"
 class TriangularNumber
-  def self.fetch_upto(n,cached_num=0,final_num=0)
+  def self.fetch_upto(n, cached_num=0, final_num=0)
     if cached_num == 0 || final_num ==0
       sum = 0
       (1..n).each { |n| sum += n }
@@ -43,7 +43,7 @@ class Fixnum
     nod = 0
     sqrt = Math.sqrt(self).to_i
     for i in 1..sqrt
-        nod += 2 if self % i == 0
+      nod += 2 if self % i == 0
     end
     #Correction if the number is a perfect square
     nod -= 1 if (sqrt * sqrt == self)
@@ -51,19 +51,50 @@ class Fixnum
   end
 end
 
+# GitHUb Solun
 
-count = 2
-loop do
-  triangular_number = TriangularNumber.fetch_upto(triangular_number || count , triangular_number || 0, count || 0 )
-  factors = triangular_number.factors
-  puts "Number - #{triangular_number} with Factors #{factors.length} "
-  if triangular_number.numberOfDivisors > 500
-   print " Found Traingular Number : #{triangular_number}, Factors : #{factors.length}"
-   break
+def divisors_count(num)
+  count = 0
+  latest_divisor = 1
+  smallest_divisor = num
+  while (latest_divisor < smallest_divisor)
+    if num % latest_divisor == 0
+      smallest_divisor = num / latest_divisor
+      if (latest_divisor == smallest_divisor)
+        count += 1
+      else
+        count += 2
+      end
+    end
+    latest_divisor += 1
   end
-  count += 1
+  count
 end
 
-#1, 3, 6, 10, 15, 21, 28, 36, 45, 55
+triange_number = 0
+i = 1
+stop = false
+while !stop
+  triange_number = i + triange_number
+  puts triange_number
+  if (divisors_count(triange_number) <= 500)
+    i += 1
+  else
+    stop = true
+  end
+end
+p triange_number
 
-# >> 6
+
+#
+# count = 2
+# loop do
+#   triangular_number = TriangularNumber.fetch_upto(triangular_number || count , triangular_number || 0, count || 0 )
+#   factors = triangular_number.factors
+#   puts "Number - #{triangular_number} with Factors #{factors.length} "
+#   if triangular_number.numberOfDivisors > 500
+#    print " Found Traingular Number : #{triangular_number}, Factors : #{factors.length}"
+#    break
+#   end
+#   count += 1
+# end
