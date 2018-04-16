@@ -14,7 +14,7 @@ xxx       |  xxx      | xxx       | xxx(Blast You stepped Mine)
 
 =end
 require "rubygems"
-require "pry"
+# require "pry"
 class Mine
   attr_accessor :mine,:grid_size
   def initialize(grid_size)
