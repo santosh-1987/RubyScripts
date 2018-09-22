@@ -18,7 +18,7 @@ mail = Mail.new do
 end
 file = File.open(file_path, 'a')
 begin
-  file.puts("\n \t ==========>>>> PROCESSING STARTED AT #{Time.now.to_s} <<<<=============== \n")
+  file.puts("\n \t ==========>>>> PROCESSING STARTED AT: #{Time.now.to_s} <<<<=============== \n")
   load_avg = `cat /proc/loadavg`.split(" ")[3].split("/").last.to_i
   if load_avg > 30000
     file.puts("Load Avg OK !!! #{load_avg}")
