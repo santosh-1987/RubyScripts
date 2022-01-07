@@ -31,6 +31,15 @@ def print_stars(height)
   end
 end
 
+
+#  Print the following Star Pattern
+#level=5
+#    1
+#   232
+#  34543
+# 4567654
+#567898765
+
 def print_palliandrome_numbers(height)
   return "Invalid Level, Level should be greater than 0" if height < 1
 
@@ -57,6 +66,21 @@ def print_palliandrome_numbers(height)
   end
 end
 
+=begin
+height = 10
+
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+0 1 0 1 0 1
+1 0 1 0 1 0 1
+0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1
+0 1 0 1 0 1 0 1 0 1
+
+=end
 def print_binary(height)
   i = 1
   while(i <= height)
