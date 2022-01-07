@@ -85,10 +85,10 @@ def print_binary(height)
   i = 1
   while(i <= height)
     j = 1
-    start = i%2 == 0
+    print_zero = i%2 == 0
     while(j <= i)
-      print start == true ? "0 " : "1 "
-      start = !start
+      print print_zero == true ? "0 " : "1 "
+      print_zero = !print_zero
       j = j+1
     end
     i = i+1
