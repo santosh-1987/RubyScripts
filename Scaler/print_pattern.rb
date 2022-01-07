@@ -13,7 +13,7 @@ def print_stars(height)
 
   i = 1
   while i <= height
-    stars = i + (i - 1)
+    stars = i + (i - 1) # can use (2i-1) AP formula
     space = height-i
     width = space + stars
     printed_space = 0
