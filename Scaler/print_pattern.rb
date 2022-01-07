@@ -12,12 +12,12 @@ def print_stars(height)
   return "Invalid Level, Level should be greater than 0" if height < 1
 
   i = 1
-  while (i <= height)
+  while i <= height
     stars = i + (i - 1)
     space = height-i
     width = space + stars
     printed_space = 0
-    while (1 <= width)
+    while 1 <= width
       if printed_space != space
         print " "
         printed_space = printed_space+1
@@ -32,7 +32,7 @@ def print_stars(height)
 end
 
 
-#  Print the following Star Pattern
+#  Print the following Number Pattern
 #level=5
 #    1
 #   232
@@ -43,26 +43,26 @@ end
 def print_palliandrome_numbers(height)
   return "Invalid Level, Level should be greater than 0" if height < 1
 
-  i = 1
-  while (i <= height)
-    stars = i + (i - 1)
-    space = height-i
-    width = space + stars
+  current_height = 1
+  while current_height <= height
+    numbers = current_height + (current_height - 1)
+    space = height-current_height
+    width = space + numbers
     printed_space = 0
-    j=i
+    number_to_print=current_height
     width_level=1
-    while (width_level<=width)
+    while width_level <= width
       if printed_space != space
         print " "
         printed_space = printed_space+1
       else
-        print j
-        j = width_level >= height ? j-1 : j+1
+        print number_to_print
+        number_to_print = width_level >= height ? number_to_print-1 : number_to_print+1
       end
       width_level = width_level + 1
     end
     puts "\n"
-    i= i+1
+    current_height= current_height+1
   end
 end
 
@@ -83,10 +83,10 @@ height = 10
 =end
 def print_binary(height)
   current_height = 1
-  while(current_height <= height)
+  while current_height <= height
     current_width = 1
     print_zero = current_height%2 == 0
-    while(current_width <= current_height)
+    while current_width <= current_height
       print print_zero == true ? "0 " : "1 "
       print_zero = !print_zero
       current_width = current_width+1
@@ -97,5 +97,5 @@ def print_binary(height)
 end
 
 # puts print_stars(10)
-puts print_binary(10)
-# puts print_palliandrome_numbers(5)
+# puts print_binary(10)
+puts print_palliandrome_numbers(5)
