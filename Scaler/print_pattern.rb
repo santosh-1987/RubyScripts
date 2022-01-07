@@ -59,7 +59,7 @@ def print_palliandrome_numbers(height)
         print j
         j = width_level >= height ? j-1 : j+1
       end
-      width_level = width_level + 1;
+      width_level = width_level + 1
     end
     puts "\n"
     i= i+1
