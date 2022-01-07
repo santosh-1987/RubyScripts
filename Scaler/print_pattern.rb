@@ -82,20 +82,20 @@ height = 10
 
 =end
 def print_binary(height)
-  i = 1
-  while(i <= height)
-    j = 1
-    print_zero = i%2 == 0
-    while(j <= i)
+  current_height = 1
+  while(current_height <= height)
+    current_width = 1
+    print_zero = current_height%2 == 0
+    while(current_width <= current_height)
       print print_zero == true ? "0 " : "1 "
       print_zero = !print_zero
-      j = j+1
+      current_width = current_width+1
     end
-    i = i+1
-    puts "\n"
+    current_height = current_height+1
+    puts
   end
 end
 
-puts print_stars(10)
+# puts print_stars(10)
 puts print_binary(10)
-puts print_palliandrome_numbers(5)
+# puts print_palliandrome_numbers(5)
