@@ -97,5 +97,5 @@ def print_binary(height)
 end
 
 # puts print_stars(10)
-# puts print_binary(10)
-puts print_palliandrome_numbers(5)
+puts print_binary(3)
+# puts print_palliandrome_numbers(5)
