@@ -6,9 +6,9 @@ def fylfot(length)
     for j in 0...length
       if i == length / 2 || j == length / 2 # Main line
         print "* "
-      elsif i == j && i == length - 1 # RL Corners
-        print "* "
       elsif i == j && i == 0 # LU corner
+        print "* "
+      elsif i == j && i == length - 1 # RL Corners
         print "* "
       elsif i == 0 && j == length - 1 # RU
         print "* "
@@ -30,4 +30,4 @@ def fylfot(length)
   end
 end
 
-fylfot(5)
+fylfot(11)
