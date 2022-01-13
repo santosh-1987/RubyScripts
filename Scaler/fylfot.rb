@@ -4,13 +4,11 @@ def fylfot(length)
     for j in 0...length
       if i == length / 2 || j == length / 2 # Main line
         print "* "
-      elsif i == j && i == 0 || i == j && i == length - 1 # LU & RL corner
+      elsif (i == j && i == 0) || (i == j && i == length - 1) || (i == 0 && j == length - 1) || (j == 0 && i == length - 1) # LU & RL & RU && LL corner
         print "* "
-      elsif (i == 0 && j == length - 1) || (j == 0 && i == length - 1) # RU && LL
+      elsif (i == 0 && j > length / 2) || (j == 0 && i < length / 2)
         print "* "
-      elsif i == 0 && j > length / 2 || j == 0 && i < length / 2
-        print "* "
-      elsif i == length - 1 && j < length / 2 || j == length - 1 && i > length / 2
+      elsif (i == length - 1 && j < length / 2) || (j == length - 1 && i > length / 2)
         print "* "
       else
         print "  "
