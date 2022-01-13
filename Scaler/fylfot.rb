@@ -10,15 +10,11 @@ def fylfot(length)
         print "* "
       elsif i == j && i == length - 1 # RL Corners
         print "* "
-      elsif i == 0 && j == length - 1 # RU
+      elsif (i == 0 && j == length - 1) || (j == 0 && i == length - 1) # RU && LL
         print "* "
-      elsif j == 0 && i == length - 1 # LL
-        print "* "
-      elsif i == 0 && j > length / 2
+      elsif i == 0 && j > length / 2 || j == 0 && i < length / 2
         print "* "
       elsif i == length - 1 && j < length / 2
-        print "* "
-      elsif j == 0 && i < length / 2
         print "* "
       elsif j == length - 1 && i > length / 2
         print "* "
@@ -30,4 +26,6 @@ def fylfot(length)
   end
 end
 
-fylfot(11)
+[5, 7, 9, 11].each do |num|
+  fylfot(num)
+end
