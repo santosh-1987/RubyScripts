@@ -14,9 +14,7 @@ def fylfot(length)
         print "* "
       elsif i == 0 && j > length / 2 || j == 0 && i < length / 2
         print "* "
-      elsif i == length - 1 && j < length / 2
-        print "* "
-      elsif j == length - 1 && i > length / 2
+      elsif i == length - 1 && j < length / 2 || j == length - 1 && i > length / 2
         print "* "
       else
         print "  "
