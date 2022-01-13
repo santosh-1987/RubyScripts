@@ -65,26 +65,31 @@ Explanation 2:
 #   Except 2 and 3, all the other prime numbers can be expressed in the general form as    6n + 1 or 6n - 1, where n is the natural number.
 # https://stackoverflow.com/questions/5811151/why-do-we-check-up-to-the-square-root-of-a-prime-number-to-determine-if-it-is-pr
 # You can also go upto n/2 in loop to find if a number is divisbile , but square root tip is more fast
-def main()
-  num = gets.to_i
-
-  if (num == 1 || num == 2 || num == 3 || num == 5)
-    puts("YES")
-  elsif ((num % 10) % 2 == 0)
-    puts "NO" # Numbers having even numbers in one’ place cannot be a prime number.
-  elsif(num.to_s.split("").map(&:to_i).inject(:+) % 3 == 0)
-    puts "NO"
+def prime(num)
+  if num == 1 || num == 2 || num == 3 || num == 5
+    true
+  elsif (num % 10) % 2 == 0
+    false # Numbers having even numbers in one’ place cannot be a prime number.
+  elsif num.to_s.split("").map(&:to_i).inject(:+) % 3 == 0
+    false
   else
-    limit = num/2
-    prime = "YES"
+    limit = num / 2
+    prime = true
     (2..limit).each do |divisor|
-      if(num%divisor == 0)
-        prime = "NO"
+      if num % divisor == 0
+        prime = false
         break
       end
     end
-    puts prime
+    prime
   end
 end
 
-main
+def print_all_prime(limit)
+  for i in 2..limit
+    prime = prime(i)
+    puts i if prime
+  end
+end
+
+print_all_prime(300)
