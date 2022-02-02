@@ -1,7 +1,7 @@
 require 'pry'
 
 class Combination
-  def self.find(arr)
+  def self.bruteforce(arr)
     all_combs = []
     for i in 0...arr.length
       all_combs << [arr[i]]
@@ -16,10 +16,27 @@ class Combination
     end
     return all_combs
   end
+
+  def self.combinations_using_recursion(arr)
+    if arr.length == 0
+      return [[]]
+    end
+    first_element = arr[0]
+    arr.shift
+    combs_without_first = combinations_using_recursion(arr)
+    combs_with_first = []
+    combs_without_first.each do |comb|
+      combs_with_first << [first_element, *comb]
+    end
+    return [*combs_without_first, *combs_with_first]
+  end
 end
 
-combinations = Combination.find([7, 2, 3, 4])
+combinations = Combination.bruteforce([1, 2, 3, 4])
+# combinations = Combination.combinations_using_recursion([1, 2, 3])
 puts "Count: #{combinations.uniq.count}"
+print combinations
+puts
 combinations.each do |combs|
   print combs
   puts
