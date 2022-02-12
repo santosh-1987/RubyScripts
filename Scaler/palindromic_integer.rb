@@ -63,7 +63,7 @@ Explanation 3:
 
  For A = 131, reverse(A) = reverse(131) = 131, which is same as A.
 =end
-
+require 'pry'
 def main()
   num = gets.to_i
   orig_number = num
@@ -75,4 +75,22 @@ def main()
   puts reverse_number == orig_number.to_s ? "Yes" : "No"
 end
 
-main
+def is_palindrome(x)
+  return false if x < 0
+  num = x
+  new_num = []
+  count = 1
+  while x != 0
+    remainder = x % 10
+    x = x / 10
+    # new_num +=  count * remainder
+    # count = count*10
+    new_num << remainder
+  end
+
+  return num == new_num.join().to_i
+
+end
+
+puts is_palindrome(-121)
+# main

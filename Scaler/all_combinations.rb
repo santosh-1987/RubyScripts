@@ -28,16 +28,19 @@ class Combination
     combs_without_first.each do |comb|
       combs_with_first << [first_element, *comb]
     end
+    puts
+    print [*combs_without_first, *combs_with_first]
+    puts
     return [*combs_without_first, *combs_with_first]
   end
 end
 
-combinations = Combination.bruteforce([1, 2, 3, 4])
-# combinations = Combination.combinations_using_recursion([1, 2, 3])
-puts "Count: #{combinations.uniq.count}"
-print combinations
-puts
-combinations.each do |combs|
-  print combs
-  puts
-end
+# combinations = Combination.bruteforce([1, 2, 3, 4])
+combinations = Combination.combinations_using_recursion([1, 2, 3])
+# puts "Count: #{combinations.uniq.count}"
+# print combinations
+# puts
+# combinations.each do |combs|
+#   print combs
+#   puts
+# end
