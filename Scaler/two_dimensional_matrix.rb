@@ -77,5 +77,3 @@ puts
 print TwoDimensionMatrix.rotate(arr4.map(&:clone), 270)
 puts
 print TwoDimensionMatrix.rotate(arr4.map(&:clone), 360)
-
-
