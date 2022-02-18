@@ -41,3 +41,25 @@ main(singing_minutes5)
 main(singing_minutes6)
 main(singing_minutes7)
 main(singing_minutes8)
+
+# def calculate(g,b)
+#   a=[0]
+#   i=0
+#   while i<=g.length-1
+#     if b[i].between?(g[0],g[1]) && b[i]!=g[0] && b[i]!=g[1]
+#       a<< b[i]
+#     elsif g[i].between?(b[0],b[1]) && g[i]!=b[0] && g[i]!=b[1]
+#       a<< g[i]
+#     end
+#     i+=1
+#   end
+#   if a.length>1
+#     puts a[2]-a[1]
+#   else
+#     puts 0
+#   end
+# end
+# calculate([3,7],[2,8])
+# calculate([3,7],[2,5])
+# calculate([5,8],[2,6])
+# calculate([5,8],[4,9])
