@@ -1,3 +1,5 @@
+require 'pry'
+
 class TwoDimensionMatrix
   def self.transpose(arr)
     for i in (0...arr.length)
@@ -51,6 +53,56 @@ class TwoDimensionMatrix
     end
     return arr
   end
+
+  def self.all_diagonals(arr)
+    diagonals = []
+    array_length = arr.length
+    x = 0
+    y = 0
+    row = 0
+    col = 0
+
+    while x < array_length && y < array_length
+      sub_array = []
+      while col >= 0 && row < array_length
+        sub_array << arr[row][col]
+        col -= 1
+        row += 1
+      end
+
+      if sub_array.length < array_length
+        sub_array << [0] * (array_length - sub_array.length)
+      end
+
+      diagonals << sub_array.flatten
+
+      if y < array_length - 1
+        y += 1
+      else
+        x += 1
+      end
+      row = x
+      col = y
+    end
+    return diagonals
+  end
+
+  def self.matrix_multiplication(a,b)
+    col_length = b[0].length
+    arr = []
+    for i in 0...a.length
+      sa = []
+      for j in 0...col_length
+        sum = 0
+        for k in 0...b.length
+          sum +=  a[i][k] * b[k][j]
+        end
+        sa << sum
+      end
+      arr << sa
+    end
+    return arr
+  end
 end
 
 arr2 = [
@@ -68,12 +120,15 @@ arr4 = [
   [9, 10, 11, 12],
   [13, 14, 15, 16]
 ]
-print TwoDimensionMatrix.rotate(arr2.map(&:clone), 0)
-puts
-print TwoDimensionMatrix.rotate(arr3.map(&:clone), 90)
-puts
-print TwoDimensionMatrix.rotate(arr4.map(&:clone), 180)
-puts
-print TwoDimensionMatrix.rotate(arr4.map(&:clone), 270)
-puts
-print TwoDimensionMatrix.rotate(arr4.map(&:clone), 360)
+# print TwoDimensionMatrix.rotate(arr2.map(&:clone), 0)
+# puts
+# print TwoDimensionMatrix.rotate(arr3.map(&:clone), 90)
+# puts
+# print TwoDimensionMatrix.rotate(arr4.map(&:clone), 180)
+# puts
+# print TwoDimensionMatrix.rotate(arr4.map(&:clone), 270)
+# puts
+# print TwoDimensionMatrix.rotate(arr4.map(&:clone), 360)
+#
+# print TwoDimensionMatrix.all_diagonals(arr3)
+print TwoDimensionMatrix.matrix_multiplication([[1,2,3],[4,5,6]],[[1],[2],[3]])
