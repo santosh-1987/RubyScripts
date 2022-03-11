@@ -46,6 +46,45 @@ class SpiralArray
     end
     return new_arr
   end
+
+  def self.fill(a)
+    count = a * a
+    arr = []
+    1.upto(a).each do |_|
+      arr << [nil] * a
+    end
+    rs = 0
+    cs = 0
+    re = arr.length - 1
+    ce = arr[0].length - 1
+    num = 1
+    while ce >= cs
+      #Print First Row
+      for i in (rs..ce)
+        arr[rs][i] = num
+        num += 1
+      end
+      rs += 1
+      # Print Last Column
+      # [0][4], [1][4], [2][4]
+      for j in (rs..ce)
+        arr[j][ce] = num
+        num += 1
+      end
+      ce = ce - 1
+      ce.downto(cs).each do |k|
+        arr[re][k] = num
+        num += 1
+      end
+      re = re - 1
+      re.downto(rs).each do |l|
+        arr[l][cs] = num
+        num += 1
+      end
+      cs = cs + 1
+    end
+    return arr
+  end
 end
 
 arr0 = [[1]]
@@ -63,3 +102,5 @@ puts
 print SpiralArray.display(arr1)
 puts
 print SpiralArray.display(arr2)
+puts
+print SpiralArray.fill(5)
