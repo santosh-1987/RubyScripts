@@ -8,7 +8,7 @@ A 0-1 alternating array is an array containing only 0's & 1's, and having no adj
 Example Input
 Input 1:
 
- A = [1, 0, 1, 0, 1]
+ A = [1, 0, 1, 0, 1,23]
  B = 1
 Input 2:
 
