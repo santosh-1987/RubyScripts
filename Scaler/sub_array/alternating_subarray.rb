@@ -24,7 +24,6 @@ Output 2:
 
  [0, 1, 2, 3, 4, 5, 6]
 =end
-require 'pry'
 
 class Solution
   # @param a : array of integers
@@ -54,14 +53,3 @@ class Solution
 end
 
 print Solution.new.solve([1, 0, 1, 0, 1], 1)
-
-# alternating = false
-# sub_arrays.each_with_index do |ele, idx|
-#   alternating = true if idx == 0
-#   if ele == sub_arrays[idx-1]
-#     alternating = false
-#     break
-#   end
-#   puts alternating
-#   ans << i+b if alternating
-# end
