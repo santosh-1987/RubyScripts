@@ -26,7 +26,6 @@ class Solution
   # @param a : array of integers
   # @return an array of integers
   def solve(a)
-    # negative_indexes = []
     sub_arrays = []
     max_length_till_now = 0
     prev_negative_idx = -1
