@@ -164,11 +164,11 @@ def full_numberic_pyramid
   for i in 1..height
     digit = i
     for j in 1..width
-      start = (width/2) - (i-1)
-      start = (width/2) - (i-1)
+      start = (width / 2) - (i - 1)
+      start = (width / 2) - (i - 1)
       if j > start && j <= width - start
         print "#{digit}"
-        digit = width/2 < j ? digit - 1 : digit + 1
+        digit = width / 2 < j ? digit - 1 : digit + 1
       else
         print "0"
       end
@@ -178,7 +178,50 @@ def full_numberic_pyramid
   end
 end
 
+=begin
+Write a program to input an integer N from user and print hollow diamond star pattern series of N lines.
+
+See example for clarifications over the pattern.
+
+4
+Output 1:
+
+********
+***  ***
+**    **
+*      *
+*      *
+**    **
+***  ***
+********
+=end
+
+def print_diamond(size)
+  stars = size * 2
+  count_of_spaces = 0
+  for i in 0...stars
+    count_of_stars = (stars - count_of_spaces) / 2
+    if (i <= size - 1)
+      print "*" * count_of_stars
+      print " " * count_of_spaces
+      print "*" * count_of_stars
+    else
+      print "*" * count_of_stars
+      print " " * count_of_spaces
+      print "*" * count_of_stars
+    end
+    if i <= size - 1
+      count_of_spaces += 2
+      count_of_spaces -= 2 if count_of_spaces == stars
+    else
+      count_of_spaces -= 2
+    end
+    puts
+  end
+end
+
 # puts print_stars(10)
 # puts print_binary(3)
 # puts print_palliandrome_numbers(5)
-full_numberic_pyramid
+# full_numberic_pyramid
+print_diamond(25)
