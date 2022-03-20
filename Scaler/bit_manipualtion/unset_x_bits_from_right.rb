@@ -4,6 +4,7 @@ For eg:-
 A = 93, B = 4
 A in binary = 1011101
 A should become = 1010000 = 80. Therefore return 80.
+https://www.youtube.com/watch?v=yEa0vkjJSf0
 =end
 
 class Solution
@@ -29,6 +30,10 @@ class Solution
 
   def toggle_bit(num, bit_no)
     return num ^ (1 << bit_no)
+  end
+
+  def unset_bit(num, i)
+    num & (~(1 << i))
   end
 end
 
