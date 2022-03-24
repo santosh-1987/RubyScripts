@@ -51,6 +51,3 @@ class Solution
 end
 
 puts "#{Solution.new.to_lower(['S', 'c', 'a', 'L', 'e', 'r', '#', '2', '0', '2', '0'])}"
-
-"n l e v g v r e a h m o f ? s z w f ` s ? h x b y s m o w k l d t @ g d p w e g i s h o l b d q o q k t m c g g m n h v g l { a b c x w b x e = d i a c y e x p j x e"
-"n l e v g v r e a h m o f ? s z w f ` s ? h x b y s m o w k l d t ` g d p w e g i s h o l b d q o q k t m c g g m n h v g l { a b c x w b x e = d i a c y e x p j x e"
