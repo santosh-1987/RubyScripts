@@ -34,6 +34,7 @@ Explanation 1:
 
  All the characters in the returned array are in lowercase alphabets.
 =end
+require 'pry'
 
 class Solution
   # @param a : array of characters
@@ -61,8 +62,26 @@ class Solution
     end
     return a
   end
+
+  def is_alphanumeric(a)
+    is_alphanumeric = 0
+    for idx in 0...a.length
+      char = a[idx]
+      if char.ord >= 48 && char.ord <= 57
+        is_alphanumeric = 1
+      elsif char.ord >= 65 && char.ord <= 90
+        is_alphanumeric = 1
+      elsif char.ord >= 97 && char.ord <= 122
+        is_alphanumeric = 1
+      else
+        is_alphanumeric = 0
+        break
+      end
+    end
+    return is_alphanumeric
+  end
 end
 
 puts "#{Solution.new.to_lower(['S', 'c', 'a', 'L', 'e', 'r', '#', '2', '0', '2', '0'])}"
 puts "#{Solution.new.to_upper(['S', 'c', 'a', 'L', 'e', 'r', '#', '2', '0', '2', '0'])}"
-
+puts "#{Solution.new.is_alphanumeric(["s", "g", "7", "A", "d", "v", "t", "W", "4", "A", "4", "2", "8", "f", "h", "B", "p", "h", "7", "0", "v", "q", "w", "9", "o"])}"
