@@ -39,11 +39,24 @@ class Solution
   # @param a : array of characters
   # @return an array of characters
   def to_lower(a)
-    range = ('A'.. 'Z')
+    lower = 'A'
+    higher = 'Z'
     0.upto(a.length - 1).each do |idx|
       char = a[idx]
-      if range.include?(char)
-        a[idx] = (char.ord |(1 << 5)).chr
+      if char >= lower && char <= higher
+        a[idx] = (char.ord | (1 << 5)).chr
+      end
+    end
+    return a
+  end
+
+  def to_upper(a)
+    lower = 'a'
+    higher = 'z'
+    0.upto(a.length - 1).each do |idx|
+      char = a[idx]
+      if char >= lower && char <= higher
+        a[idx] = (char.ord ^ (1 << 5)).chr
       end
     end
     return a
@@ -51,3 +64,5 @@ class Solution
 end
 
 puts "#{Solution.new.to_lower(['S', 'c', 'a', 'L', 'e', 'r', '#', '2', '0', '2', '0'])}"
+puts "#{Solution.new.to_upper(['S', 'c', 'a', 'L', 'e', 'r', '#', '2', '0', '2', '0'])}"
+
