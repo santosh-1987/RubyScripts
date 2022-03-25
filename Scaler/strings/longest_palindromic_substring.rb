@@ -58,12 +58,21 @@ class Solution
   end
 
   def get_paliandrome_str(str, starting, ending)
+    # puts "#{str}, #{starting}, #{ending}"
     new_str = ''
     while starting >= 0 && ending < str.length && str[starting] == str[ending]
-      new_str = str[starting..ending]
+      if starting == ending
+        new_str << str[ending]
+      else
+        new_str.prepend(str[starting])
+        new_str << str[ending]
+      end
+      # new_str = str[starting..ending]
+      # binding.pry if new_str == "aaabaaa"
       starting -= 1
       ending += 1
     end
+    # puts new_str
     return new_str
   end
 
@@ -78,4 +87,4 @@ class Solution
 end
 
 puts Solution.new.longestPalindrome_string("aaaabaaa")
-puts Solution.new.longestPalindrome_string("amazonin")
+# puts Solution.new.longestPalindrome_string("amazonin")
