@@ -48,13 +48,37 @@ class Solution
 
   def longestPalindrome_string(a)
     ans = ""
+    starting = 0
+    ending = 0
     for i in 0...a.length
-      str1 = get_paliandrome_str(a, i, i)
-      str2 = get_paliandrome_str(a, i, i + 1)
-      str = str1.length > str2.length ? str1 : str2
-      ans = ans.length >= str.length ? ans : str
+      firstodd, lastodd = get_paliandrome_indexes(a, i, i)
+      firsteven, lasteven = get_paliandrome_indexes(a, i, i + 1)
+      # puts "firstodd: #{firstodd},lastodd: #{lastodd},firsteven: #{firsteven},lasteven: #{lasteven}"
+      if firsteven.nil? && firstodd.nil?
+        continue
+      elsif firsteven.nil?
+        if lastodd - firstodd > ending - starting
+          starting = firstodd
+          ending = lastodd
+        end
+      elsif firstodd.nil?
+        if lasteven - firsteven > ending - starting
+          starting = firsteven
+          ending = lasteven
+        end
+      elsif lasteven - firsteven > lastodd - firstodd
+        if lasteven - firsteven > ending - starting
+          starting = firsteven
+          ending = lasteven
+        end
+      else
+        if lastodd - firstodd > ending - starting
+          starting = firstodd
+          ending = lastodd
+        end
+      end
     end
-    return ans
+    return a[starting..ending]
   end
 
   def get_paliandrome_str(str, starting, ending)
@@ -76,6 +100,24 @@ class Solution
     return new_str
   end
 
+  def get_paliandrome_indexes(str, starting, ending)
+    # puts "Initial starting:#{starting}, ending: #{ending}"
+    valid = false
+    while starting >= 0 && ending < str.length && str[starting] == str[ending]
+      valid = true
+      starting -= 1
+      ending += 1
+    end
+    if valid == true
+      starting = starting + 1
+      ending = ending - 1
+    else
+      starting = nil
+      ending = nil
+    end
+    return starting, ending
+  end
+
   def get_paliandrome_length(str, starting, ending)
     while starting > 0 && ending < str.length && str[starting] == str[ending]
       starting -= 1
@@ -86,5 +128,69 @@ class Solution
 
 end
 
+puts Solution.new.longestPalindrome_string("amazonin")
 puts Solution.new.longestPalindrome_string("aaaabaaa")
-# puts Solution.new.longestPalindrome_string("amazonin")
+puts Solution.new.longestPalindrome_string("amazoninotit")
+puts Solution.new.longestPalindrome_string("abbcccbbbcaaccbababcbcabca")
+puts Solution.new.longestPalindrome_string("bbacaccaabcbaccbcacacabcbcbbbcbbbccabcbccacbacbbaacbbbcbbaabbbcabcabccaacbcccaabaccacabaccabbcacbc")
+
+=begin
+Accepted Solution in Online IDE
+class Solution
+    # @param a : string
+    # @return a string
+    def longestPalindrome(a)
+        ans = ""
+        starting = 0
+        ending = 0
+        for i in 0...a.length
+        firstodd, lastodd = get_paliandrome_indexes(a, i, i)
+        firsteven, lasteven = get_paliandrome_indexes(a, i, i + 1)
+        # puts "firstodd: #{firstodd},lastodd: #{lastodd},firsteven: #{firsteven},lasteven: #{lasteven}"
+        if firsteven.nil? && firstodd.nil?
+            continue
+        elsif firsteven.nil?
+            if lastodd - firstodd > ending - starting
+            starting = firstodd
+            ending = lastodd
+            end
+        elsif firstodd.nil?
+            if lasteven - firsteven > ending - starting
+            starting = firsteven
+            ending = lasteven
+            end
+        elsif lasteven - firsteven > lastodd - firstodd
+            if lasteven - firsteven > ending - starting
+            starting = firsteven
+            ending = lasteven
+            end
+        else
+            if lastodd - firstodd > ending - starting
+            starting = firstodd
+            ending = lastodd
+            end
+        end
+        end
+        return a[starting..ending]
+    end
+
+    def get_paliandrome_indexes(str, starting, ending)
+        # puts "Initial starting:#{starting}, ending: #{ending}"
+        valid = false
+        while starting >= 0 && ending < str.length && str[starting] == str[ending]
+        valid = true
+        starting -= 1
+        ending += 1
+        end
+        if valid == true
+        starting = starting + 1
+        ending = ending - 1
+        else
+        starting = nil
+        ending = nil
+        end
+        return starting, ending
+  end
+end
+
+=end
