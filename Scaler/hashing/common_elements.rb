@@ -54,6 +54,8 @@ Explantion 2:
 
  Elements (2, 10) appears in both the array.
 =end
+require 'pry'
+
 class Solution
   # @param a : array of integers
   # @param b : array of integers
@@ -65,6 +67,7 @@ class Solution
       count = hash[ele]
       hash[ele] = count.nil? ? 1 : count + 1
     end
+    # TODO: TLE ERROR for Commented Code
     # hash.each do |key, count|
     #   b_key_count = b.count(key)
     #   next if b_key_count == 0
@@ -81,10 +84,8 @@ class Solution
       if !hash[ele].nil?
         hash[ele] = hash[ele] - 1
         op << ele
+        hash.delete(ele) if hash[ele] < 1
       end
-
-      hash.delete(ele) if hash[ele] < 1
-
     end
     return op
   end
