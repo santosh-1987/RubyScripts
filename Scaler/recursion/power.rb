@@ -20,6 +20,7 @@ class Solution
     return a * power(a, b - 1)
   end
 
+  # log n time complexity
   def optimized_power(a, b)
     return 1 if b == 0
 
