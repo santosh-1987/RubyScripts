@@ -15,12 +15,13 @@ class Solution
     power_with_mod(a, b, c) % c
   end
 
+  # O(N)
   def power(a, b)
     return 1 if b == 0
     return a * power(a, b - 1)
   end
 
-  # log n time complexity
+  # O(log n) time complexity
   def optimized_power(a, b)
     return 1 if b == 0
 
