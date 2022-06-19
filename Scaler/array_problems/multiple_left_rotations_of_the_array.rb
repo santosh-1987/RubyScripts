@@ -89,4 +89,17 @@ class Solution
     end
     return output
   end
+
+  # Given an integer array A of size N and an integer B, you have to print the same array after rotating it B times towards the right.
+  def rotate_right(a, b)
+    rotate_mod = b % a.length
+    return a if rotate_mod == 0
+
+    return a.last(rotate_mod) + a.first(a.length-rotate_mod)
+  end
 end
+
+puts "#{Solution.new.rotate_right([1, 2, 3, 4], 1)}"
+puts "#{Solution.new.rotate_right([1, 2, 3, 4], 2)}"
+puts "#{Solution.new.rotate_right([1, 2, 3, 4], 3)}"
+puts "#{Solution.new.rotate_right([1, 2, 3, 4], 4)}"

@@ -97,3 +97,37 @@ public class Solution {
     }
 }
 =end
+
+require 'set'
+
+class Solution
+  # @param a : array of integers
+  # @param b : integer
+  # @return an integer
+  def solve(a, b)
+    count = 0
+    set = Set.new
+    for i in 0...a.length
+      if !set.include?(a[i] ^ b)
+        set.add(a[i])
+      else
+        count += 1
+      end
+    end
+    return count
+  end
+
+  def brute_force(a, b)
+    count = 0
+    for i in 0...a.length - 1
+      for j in i + 1...a.length
+        puts "(#{a[i]},#{a[j]})"
+        count += 1 if a[i] ^ a[j] == b
+      end
+    end
+    return count
+
+  end
+end
+
+puts Solution.new.solve([5, 4, 10, 15, 7, 6], 5)
