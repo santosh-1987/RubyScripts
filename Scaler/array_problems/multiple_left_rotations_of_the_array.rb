@@ -95,7 +95,8 @@ class Solution
     rotate_mod = b % a.length
     return a if rotate_mod == 0
 
-    return a.last(rotate_mod) + a.first(a.length-rotate_mod)
+    return a[a.length - rotate_mod..-1] + a[0...a.length - rotate_mod]
+    #return a.last(rotate_mod) + a.first(a.length-rotate_mod)
   end
 end
 
