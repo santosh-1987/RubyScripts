@@ -46,6 +46,8 @@ Explanation 3:
 
  (i,j) = (2,3)
 =end
+require 'set'
+require 'pry'
 
 class Solution
   # @param a : array of integers
@@ -67,4 +69,22 @@ class Solution
 
     return found
   end
+
+  def set_solution(a, b)
+    set = Set.new
+    found = 0
+    a.each do |ele|
+      find = b - ele
+      if set.include?(find)
+        found = 1
+        break
+      end
+      if !set.include?(ele)
+        set.add(ele)
+      end
+    end
+    return found
+  end
 end
+
+puts Solution.new.set_solution([1, 2, 4], 5)
