@@ -46,7 +46,20 @@ Explanation 1:
 Explanation 2:
 
  Element 4 is missing, so we return 0.
+Java:
 
+public class Solution {
+    public int solve(ArrayList < Integer > A) {
+        Collections.sort(A);
+        int minn = A.get(0);
+        for (int x: A) {
+            if (x != minn)
+                return 0;
+            minn++;
+        }
+        return 1;
+    }
+}
 =end
 
 require 'pry'
