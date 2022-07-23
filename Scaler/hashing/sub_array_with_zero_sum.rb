@@ -49,10 +49,31 @@ Explanation 2:
 
 Tips:
 
+Try using the prefix sum array.
+The idea is to iterate through the array, and for every element A[i],
+calculate sum of elements from 0 to i (this can simply be done as sum += arr[i]).
+
 Sum(i,j) = PS[j] - PS[i-1]
 Sum(i,j) = 0
 PS[j] - PS[i-1] = 0
 PS[j] = PS[i-1]
+
+Java:
+public class Solution {
+    public int solve(ArrayList < Integer > A) {
+        HashSet < Long > set = new HashSet < Long > ();
+        long sum = 0;
+        set.add(sum);
+        for (int x: A) {
+            sum += x;
+            if (set.contains(sum)) return 1;
+            else {
+                set.add(sum);
+            }
+        }
+        return 0;
+    }
+}
 =end
 require 'set'
 
