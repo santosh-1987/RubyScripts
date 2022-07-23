@@ -51,6 +51,36 @@ There are two steps:
 3. IF element is not present in hash in fill hash table with current element.
 
 https://www.scaler.com/academy/mentee-dashboard/class/23211/assignment/problems/298/hints?navref=cl_pb_nv_tb
+
+public class Solution {
+    public ArrayList<Integer> lszero(ArrayList<Integer> A) {
+        ArrayList<Integer> rst = new ArrayList<Integer>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        if(A == null) return rst;
+        int len = 0;
+        int sum = 0;
+        int l = -1, r = -1;
+        map.put(0, -1);
+        for(int i = 0; i < A.size(); i++){
+            sum += A.get(i);
+            if(!map.containsKey(sum))
+                map.put(sum, i);
+            else{
+                if(i - map.get(sum) > len){
+                    l = map.get(sum) + 1;
+                    r = i;
+                    len = i - map.get(sum);
+                }
+            }
+        }
+        if(l >=0 && r >= 0){
+            for(int i = l; i <= r; i++){
+                rst.add(A.get(i));
+            }
+        }
+        return rst;
+    }
+}
 =end
 
 require 'pry'
