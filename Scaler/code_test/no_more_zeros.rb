@@ -1,3 +1,4 @@
+# Hint : Replace 000 with 1
 class Solution
   # @param a : integer
   # @return a string
