@@ -1,3 +1,4 @@
+# Hint: Use Sort+ Binary Search
 require 'pry'
 class Solution
   # @param a : integer
