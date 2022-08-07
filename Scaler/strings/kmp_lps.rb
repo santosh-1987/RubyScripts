@@ -25,17 +25,6 @@ class String
   end
 end
 
-puts "LPS for MAABHAIRABI is : #{"MAABHAIRABI".calculate_lps}"
-puts "LPS for SANTOSH is : #{"SANTOSH".calculate_lps}"
-puts "LPS for SHRADDHA is : #{"SHRADDHA".calculate_lps}"
-puts "LPS for PRASANT is : #{"PRASANT".calculate_lps}"
-puts "LPS for SUSANT is : #{"SUSANT".calculate_lps}"
-puts "LPS for SOMONATH is : #{"SOMONATH".calculate_lps}"
-puts "LPS for JYOTI is : #{"JYOTI".calculate_lps}"
-puts "LPS for MOHANTY is : #{"MOHANTY".calculate_lps}"
-puts "LPS for KANHU is : #{"KANHU".calculate_lps}"
-puts "LPS for JAYRAM is : #{"JAYRAM".calculate_lps}"
-puts "LPS for TIKI is : #{"TIKI".calculate_lps}"
-puts "LPS for BHAIRAB is : #{"BHAIRAB".calculate_lps}"
-puts "LPS for MAABHAIRABI is : #{"MAABHAIRABI".calculate_lps}"
-puts "LPS for abcabdabcabeabcabdabcabc is : #{"abcabdabcabeabcabdabcabc".calculate_lps}"
+puts "LPS for abcabcxyzxyz is : #{"abcabcxyzxyz".calculate_lps}"
+puts "LPS for bb#b is : #{"bb#b".calculate_lps}"
+
