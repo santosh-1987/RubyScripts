@@ -1,5 +1,5 @@
 require "pry"
-class LinkedList
+class SingleLinkedList
   attr_accessor :value
   attr_accessor :head
   def initialize(value,node)
@@ -20,8 +20,8 @@ class LinkedList
   end
 end
 
-node2 = LinkedList.new(45,nil)
-node1 = LinkedList.new(36,node2)
-node3 = LinkedList.new(78,node1)
-node4 = LinkedList.new(79,node3)
-LinkedList.traverse(node4)
+node2 = SingleLinkedList.new(45,nil)
+node1 = SingleLinkedList.new(36,node2)
+node3 = SingleLinkedList.new(78,node1)
+node4 = SingleLinkedList.new(79,node3)
+SingleLinkedList.traverse(node4)
