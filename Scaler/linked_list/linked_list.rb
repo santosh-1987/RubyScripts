@@ -43,22 +43,27 @@ class LinkedList
 
   # Reverses a Linked List
   def reverse
-
+    return if @head.nil? || @head == @tail
+    data = traverse.reverse
+    @head = nil
+    @tail = nil
+    initialize(data)
   end
 
   # Traverses the Node
   def traverse
+    data = []
     if @head.nil?
       puts "[]"
+      return data
     else
-      data = []
       thead = @head
       while !thead.next.nil?
         data << thead.data
         thead = thead.next
       end
       data << thead.data
-      puts data.inspect
+      return data
     end
   end
 
@@ -98,4 +103,6 @@ linked_list = LinkedList.new()
 linked_list.add(2)
 linked_list.add(3)
 linked_list.pop
-linked_list.traverse
+puts linked_list.traverse.inspect
+linked_list.reverse
+puts linked_list.traverse.inspect
