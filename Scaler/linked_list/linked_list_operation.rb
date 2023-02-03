@@ -1,5 +1,4 @@
 require_relative 'node'
-require 'pry'
 
 class LinkedList
   attr_accessor :head, :tail
